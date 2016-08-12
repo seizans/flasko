@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis-flasko
+  labels:
+    app: web
+spec:
+  containers:
+    - name: key-value-store
+      image: redis
+      ports:
+        - containerPort: 6379
+    - name: frontend
+      image: gcr.io/seizans-1469775296529/flasko
+      ports:
+        - containerPort: 5000
